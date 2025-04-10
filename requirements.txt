@@ -1,0 +1,38 @@
+# Core dependencies
+torch
+torchvision
+numpy
+pillow
+opencv-python
+scikit-image
+scipy
+matplotlib
+tqdm
+
+# Text detection and recognition
+# east-detector
+shapely
+pyclipper
+lanms-neo
+
+# Deep learning utilities
+albumentations
+tensorboard
+pytorch-lightning
+
+# Image processing
+imgaug
+kornia
+
+# NLP tools for text processing
+nltk
+indic-nlp-library
+
+# Evaluation metrics
+editdistance
+rapidfuzz
+
+# Utilities
+pyyaml
+pandas
+h5py
