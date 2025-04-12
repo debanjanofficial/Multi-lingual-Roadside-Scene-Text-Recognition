@@ -2,8 +2,8 @@ import os
 import torch
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
-from src.data.dataset import IndicSceneTextDataset
-from src.model.detection import TextDetectionModel
+from data.dataset import IndicSceneTextDataset
+from model.detection import TextDetectionModel
 import time
 from tqdm import tqdm
 import numpy as np
@@ -366,11 +366,10 @@ def main(args):
     
     # Learning rate scheduler
     lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer,
-        mode='max',
-        factor=0.1,
-        patience=3,
-        verbose=True
+    optimizer,
+    mode='max',
+    factor=0.1,
+    patience=3
     )
     
     # Training loop

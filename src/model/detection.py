@@ -4,19 +4,20 @@ import torchvision
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.models.detection import FasterRCNN
 from torchvision.models.detection.rpn import AnchorGenerator
+from torchvision.models.resnet import ResNet50_Weights
 
 class TextDetectionModel(nn.Module):
     def __init__(self, num_classes=2):  # Background and text
         super(TextDetectionModel, self).__init__()
         
         # Load a pre-trained model for the backbone
-        backbone = torchvision.models.resnet50(pretrained=True)
+        backbone = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT)
         
         # Remove the last two layers (avg pool and fc)
         backbone = nn.Sequential(*list(backbone.children())[:-2])
         
         # FasterRCNN needs to know the number of output channels in the backbone
-        backbone_out_channels = 2048
+        backbone.out_channels = 2048
         
         # Define anchor generator
         anchor_generator = AnchorGenerator(
